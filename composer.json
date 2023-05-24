@@ -1,0 +1,27 @@
+{
+  "name": "antikirra/uuid4",
+  "minimum-stability": "dev",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Antikirra\\Uuid4\\": ""
+    },
+    "files": [
+      "bootstrap.php",
+      "alias.php"
+    ]
+  },
+  "authors": [
+    {
+      "name": "Kirill Tkachenko",
+      "email": "antikirra@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^7.0 || ^8.0"
+  },
+  "config": {
+    "sort-packages": true
+  }
+}
