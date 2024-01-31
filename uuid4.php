@@ -56,5 +56,5 @@ function uuid4_validate($uuid4)
         return false;
     }
 
-    return (bool)preg_match('~^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[0-9a-f]{4}-[0-9a-f]{12}$~', $uuid4);
+    return (bool)preg_match('~^[a-f\d]{8}-[a-f\d]{4}-4[a-f\d]{3}-[a-f\d]{4}-[a-f\d]{12}$~', $uuid4);
 }
