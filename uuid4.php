@@ -11,10 +11,15 @@ if (!function_exists('random_bytes')) {
      */
     function random_bytes($length)
     {
+        static $prev;
+
         $bytes = '';
 
         while (strlen($bytes) < $length) {
-            $bytes .= hash('md4', tsid(), true);
+            list($a, $b) = tsids(2);
+            $i = hash('md4', implode("#", [$prev, mt_rand(), $a, mt_rand(), $b]), true);
+            $prev = $i;
+            $bytes .= $i;
         }
 
         if (strlen($bytes) > $length) {
