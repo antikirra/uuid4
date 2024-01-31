@@ -3,7 +3,7 @@
 ## Install
 
 ```console
-composer require antikirra/uuid4
+composer require antikirra/uuid4:^2.0
 ```
 
 ## Basic usage
@@ -11,23 +11,11 @@ composer require antikirra/uuid4
 ```php
 <?php
 
+use function Antikirra\uuid4;
+use function Antikirra\uuid4_validate;
+
 require __DIR__ . '/vendor/autoload.php';
 
-// only if the function has not been defined in the global scope
-uuid4();
-
-// if the function could not be defined globally
-\Antikirra\uuid4();
-
-// under the hood
-\Antikirra\Uuid4\Uuid4::uuid4();
-```
-
-## Demo
-
-```php
-<?php
-require __DIR__ . '/vendor/autoload.php';
-
-echo uuid4(); // d9c30d61-eaaf-45c2-8ec1-3ce8de1ec96e
+uuid4(); // 19f16271-84eb-449c-d22b-0bbf7fcc1f63
+uuid4_validate('74331057-8c1a-40f0-1e6f-a3073c3f56fc'); // true
 ```

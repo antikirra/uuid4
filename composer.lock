@@ -4,8 +4,51 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a14b234b9819db6c521e12fc377ad40b",
-    "packages": [],
+    "content-hash": "0c7ec2218cc20207f2dcadda8be5719c",
+    "packages": [
+        {
+            "name": "antikirra/tsid",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/antikirra/tsid.git",
+                "reference": "0d01b99681ea8723c01405c6dae15f94448c10d2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/antikirra/tsid/zipball/0d01b99681ea8723c01405c6dae15f94448c10d2",
+                "reference": "0d01b99681ea8723c01405c6dae15f94448c10d2",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.6 || ^7.0 || ^8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "tsid.php"
+                ],
+                "psr-4": {
+                    "Antikirra\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kirill Tkachenko",
+                    "email": "antikirra@gmail.com"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/antikirra/tsid/issues",
+                "source": "https://github.com/antikirra/tsid/tree/2.0.0"
+            },
+            "time": "2024-01-29T22:59:01+00:00"
+        }
+    ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
@@ -13,8 +56,8 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.0 || ^8.0"
+        "php": "^5.6 || ^7.0 || ^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
