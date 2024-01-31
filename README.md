@@ -1,4 +1,6 @@
 # Fast UUIDv4 implementation for PHP
+![Packagist Dependency Version](https://img.shields.io/packagist/dependency-v/antikirra/uuid4/php)
+![Packagist Version](https://img.shields.io/packagist/v/antikirra/uuid4)
 
 ## Install
 
