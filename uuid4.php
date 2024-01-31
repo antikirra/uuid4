@@ -4,7 +4,7 @@ namespace Antikirra;
 
 use InvalidArgumentException;
 
-if (!function_exists('random_bytes')) {
+if (version_compare(PHP_VERSION, '7.0.0', '<') || !function_exists('random_bytes')) {
     /**
      * @param int $length
      * @return string
