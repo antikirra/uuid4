@@ -30,31 +30,35 @@ if (version_compare(PHP_VERSION, '7.0.0', '<') || !function_exists('random_bytes
     }
 }
 
-/**
- * @return string
- */
-function uuid4()
-{
-    $hex = bin2hex(random_bytes(18));
-    $hex[8] = $hex[13] = $hex[18] = $hex[23] = '-';
-    $hex[14] = '4';
+if (!function_exists('Antikirra\uuid4')) {
+    /**
+     * @return string
+     */
+    function uuid4()
+    {
+        $hex = bin2hex(random_bytes(18));
+        $hex[8] = $hex[13] = $hex[18] = $hex[23] = '-';
+        $hex[14] = '4';
 
-    return $hex;
+        return $hex;
+    }
 }
 
-/**
- * @param string $uuid4
- * @return bool
- */
-function uuid4_validate($uuid4)
-{
-    if (!is_string($uuid4)) {
-        throw new InvalidArgumentException();
-    }
+if (!function_exists('Antikirra\uuid4_validate')) {
+    /**
+     * @param string $uuid4
+     * @return bool
+     */
+    function uuid4_validate($uuid4)
+    {
+        if (!is_string($uuid4)) {
+            throw new InvalidArgumentException();
+        }
 
-    if (strlen($uuid4) !== 36) {
-        return false;
-    }
+        if (strlen($uuid4) !== 36) {
+            return false;
+        }
 
-    return (bool)preg_match('~^[a-f\d]{8}-[a-f\d]{4}-4[a-f\d]{3}-[a-f\d]{4}-[a-f\d]{12}$~', $uuid4);
+        return (bool)preg_match('~^[a-f\d]{8}-[a-f\d]{4}-4[a-f\d]{3}-[a-f\d]{4}-[a-f\d]{12}$~', $uuid4);
+    }
 }
