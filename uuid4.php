@@ -30,7 +30,7 @@ if (version_compare(PHP_VERSION, '7.0.0', '<') || !function_exists('random_bytes
     }
 }
 
-if (!function_exists('Antikirra\uuid4')) {
+if (!function_exists('Antikirra\\uuid4')) {
     /**
      * @return string
      */
@@ -44,7 +44,7 @@ if (!function_exists('Antikirra\uuid4')) {
     }
 }
 
-if (!function_exists('Antikirra\uuid4_validate')) {
+if (!function_exists('Antikirra\\uuid4_validate')) {
     /**
      * @param string $uuid4
      * @return bool
