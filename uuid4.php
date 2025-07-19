@@ -50,7 +50,7 @@ function uuid4()
 function uuid4_validate($uuid4)
 {
     if (!is_string($uuid4)) {
-        throw new InvalidArgumentException();
+        throw new InvalidArgumentException('UUID must be a string, given: ' . gettype($uuid4));
     }
 
     if (strlen($uuid4) !== 36) {
