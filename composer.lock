@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0c7ec2218cc20207f2dcadda8be5719c",
+    "content-hash": "8670790e6b7a9bbc9a10d573c219068f",
     "packages": [
         {
-            "name": "antikirra/tsid",
-            "version": "2.0.0",
+            "name": "antikirra/random-bytes",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/antikirra/tsid.git",
-                "reference": "0d01b99681ea8723c01405c6dae15f94448c10d2"
+                "url": "https://github.com/antikirra/random-bytes.git",
+                "reference": "139f5d16cf58406aa9d9935a5b8903bf28fb68e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/antikirra/tsid/zipball/0d01b99681ea8723c01405c6dae15f94448c10d2",
-                "reference": "0d01b99681ea8723c01405c6dae15f94448c10d2",
+                "url": "https://api.github.com/repos/antikirra/random-bytes/zipball/139f5d16cf58406aa9d9935a5b8903bf28fb68e1",
+                "reference": "139f5d16cf58406aa9d9935a5b8903bf28fb68e1",
                 "shasum": ""
             },
             "require": {
@@ -26,7 +26,7 @@
             "type": "library",
             "autoload": {
                 "files": [
-                    "tsid.php"
+                    "random_bytes.php"
                 ],
                 "psr-4": {
                     "Antikirra\\": ""
@@ -43,21 +43,21 @@
                 }
             ],
             "support": {
-                "issues": "https://github.com/antikirra/tsid/issues",
-                "source": "https://github.com/antikirra/tsid/tree/2.0.0"
+                "issues": "https://github.com/antikirra/random-bytes/issues",
+                "source": "https://github.com/antikirra/random-bytes/tree/1.0.0"
             },
-            "time": "2024-01-29T22:59:01+00:00"
+            "time": "2025-07-19T11:44:05+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {},
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
         "php": "^5.6 || ^7.0 || ^8.0"
     },
-    "platform-dev": [],
+    "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }

@@ -19,7 +19,7 @@
   ],
   "require": {
     "php": "^5.6 || ^7.0 || ^8.0",
-    "antikirra/tsid": "^2.0.0"
+    "antikirra/random-bytes": "^1"
   },
   "config": {
     "sort-packages": true
