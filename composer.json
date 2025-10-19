@@ -22,6 +22,12 @@
     "antikirra/random-bytes": "^1"
   },
   "config": {
-    "sort-packages": true
+    "sort-packages": true,
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  },
+  "require-dev": {
+    "pestphp/pest": "4.x-dev"
   }
 }
