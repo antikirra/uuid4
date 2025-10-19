@@ -5,7 +5,7 @@
 ## Install
 
 ```console
-composer require antikirra/uuid4:^3
+composer require antikirra/uuid4:^3.0
 ```
 
 ## Basic usage
