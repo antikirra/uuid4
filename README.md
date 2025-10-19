@@ -87,6 +87,17 @@ This library is thoroughly tested with comprehensive test coverage:
 - **Edge Cases**: Handles uppercase/lowercase, malformed UUIDs, type errors
 - **PHP Compatibility**: Tested across PHP 5.6 through PHP 8.4
 
+## Performance
+
+Blazing fast performance benchmarks on Apple M4 with PHP 8.4:
+
+| Operation | Speed | Details |
+|-----------|-------|---------|
+| **UUID Generation** | 1,626,197 ops/sec | 100,000 iterations in 0.0615 seconds |
+| **UUID Validation** | 8,338,825 ops/sec | 1,000,000 iterations in 0.1199 seconds |
+
+*Run `php benchmark.php` to test performance on your own system.*
+
 ## Keywords
 
 uuid4, uuid-generator, rfc4122, unique-identifier, php-uuid, cryptographically-secure, distributed-systems, php-5.6-compatible, zero-dependencies, lightweight-library, database-primary-keys, microservices
