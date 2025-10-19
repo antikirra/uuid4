@@ -111,4 +111,135 @@ describe('uuid4_validate()', function () {
             expect(uuid4_validate($uuid))->toBeFalse();
         }
     });
+
+    // Edge cases: whitespace and special characters
+    it('rejects UUID with leading whitespace', function () {
+        expect(uuid4_validate(' 550e8400-e29b-41d4-a716-446655440000'))->toBeFalse();
+    });
+
+    it('rejects UUID with trailing whitespace', function () {
+        expect(uuid4_validate('550e8400-e29b-41d4-a716-446655440000 '))->toBeFalse();
+    });
+
+    it('rejects UUID with internal whitespace', function () {
+        expect(uuid4_validate('550e8400-e29b-41d4-a716 -446655440000'))->toBeFalse();
+    });
+
+    it('rejects UUID with newline character', function () {
+        expect(uuid4_validate("550e8400-e29b-41d4-a716-446655440000\n"))->toBeFalse();
+    });
+
+    it('rejects UUID with tab character', function () {
+        expect(uuid4_validate("550e8400-e29b-41d4-a716-446655440000\t"))->toBeFalse();
+    });
+
+    // Edge cases: all zeros and all Fs
+    it('accepts UUID with all zeros (except version and variant)', function () {
+        expect(uuid4_validate('00000000-0000-4000-8000-000000000000'))->toBeTrue();
+    });
+
+    it('accepts UUID with all Fs (except version and variant)', function () {
+        expect(uuid4_validate('ffffffff-ffff-4fff-bfff-ffffffffffff'))->toBeTrue();
+    });
+
+    // Edge cases: boundary values for version field
+    it('rejects UUID with version 0', function () {
+        expect(uuid4_validate('550e8400-e29b-01d4-a716-446655440000'))->toBeFalse();
+    });
+
+    it('rejects UUID with version 1', function () {
+        expect(uuid4_validate('550e8400-e29b-11d4-a716-446655440000'))->toBeFalse();
+    });
+
+    it('rejects UUID with version 2', function () {
+        expect(uuid4_validate('550e8400-e29b-21d4-a716-446655440000'))->toBeFalse();
+    });
+
+    it('rejects UUID with version 5', function () {
+        expect(uuid4_validate('550e8400-e29b-51d4-a716-446655440000'))->toBeFalse();
+    });
+
+    it('rejects UUID with version f', function () {
+        expect(uuid4_validate('550e8400-e29b-f1d4-a716-446655440000'))->toBeFalse();
+    });
+
+    // Edge cases: hyphen variations
+    it('rejects UUID with underscores instead of hyphens', function () {
+        expect(uuid4_validate('550e8400_e29b_41d4_a716_446655440000'))->toBeFalse();
+    });
+
+    it('rejects UUID with no separators', function () {
+        expect(uuid4_validate('550e8400e29b41d4a716446655440000'))->toBeFalse();
+    });
+
+    it('rejects UUID with spaces instead of hyphens', function () {
+        expect(uuid4_validate('550e8400 e29b 41d4 a716 446655440000'))->toBeFalse();
+    });
+
+    it('rejects UUID with curly braces', function () {
+        expect(uuid4_validate('{550e8400-e29b-41d4-a716-446655440000}'))->toBeFalse();
+    });
+
+    it('rejects UUID with URN prefix', function () {
+        expect(uuid4_validate('urn:uuid:550e8400-e29b-41d4-a716-446655440000'))->toBeFalse();
+    });
+
+    // Edge cases: object inputs
+    it('throws InvalidArgumentException for object input', function () {
+        $obj = new \stdClass();
+        expect(fn() => uuid4_validate($obj))
+            ->toThrow(InvalidArgumentException::class, 'UUID must be a string, got object');
+    });
+
+    it('throws InvalidArgumentException for float input', function () {
+        expect(fn() => uuid4_validate(3.14))
+            ->toThrow(InvalidArgumentException::class, 'UUID must be a string, got double');
+    });
+
+    // Edge cases: Unicode and special characters
+    it('rejects UUID with unicode characters', function () {
+        expect(uuid4_validate('550e8400-e29b-41d4-a716-44665544000ф'))->toBeFalse();
+    });
+
+    it('rejects UUID with emoji', function () {
+        expect(uuid4_validate('550e8400-e29b-41d4-a716-44665544000😀'))->toBeFalse();
+    });
+
+    // Edge cases: case sensitivity for variant
+    it('accepts variant with uppercase letters', function () {
+        expect(uuid4_validate('550e8400-e29b-41d4-A716-446655440000'))->toBeTrue();
+        expect(uuid4_validate('550e8400-e29b-41d4-B716-446655440000'))->toBeTrue();
+    });
+
+    // Edge cases: segment length violations
+    it('rejects UUID with incorrect first segment length', function () {
+        expect(uuid4_validate('550e840-e29b-41d4-a716-446655440000'))->toBeFalse();
+    });
+
+    it('rejects UUID with incorrect second segment length', function () {
+        expect(uuid4_validate('550e8400-e29-41d4-a716-446655440000'))->toBeFalse();
+    });
+
+    it('rejects UUID with incorrect third segment length', function () {
+        expect(uuid4_validate('550e8400-e29b-41d-a716-446655440000'))->toBeFalse();
+    });
+
+    it('rejects UUID with incorrect fourth segment length', function () {
+        expect(uuid4_validate('550e8400-e29b-41d4-a71-446655440000'))->toBeFalse();
+    });
+
+    it('rejects UUID with incorrect fifth segment length', function () {
+        expect(uuid4_validate('550e8400-e29b-41d4-a716-44665544000'))->toBeFalse();
+    });
+
+    // Edge cases: resource type (PHP < 8.0 compatibility)
+    it('throws InvalidArgumentException for resource input', function () {
+        $resource = fopen('php://memory', 'r');
+        try {
+            expect(fn() => uuid4_validate($resource))
+                ->toThrow(InvalidArgumentException::class);
+        } finally {
+            fclose($resource);
+        }
+    });
 });
